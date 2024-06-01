@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Teacher Dashboard</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="mt-3">
+            <div class="form-group">
+                <label for="csvfile">Upload CSV:</label>
+                <input type="file" name="csvfile" id="csvfile" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <h2 class="mt-5">Students Data</h2>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Subject</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student.name %></td>
+                        <td><%= student.grade %></td>
+                        <td><%= student.subject %></td>
+                        <td><%= student.result %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
